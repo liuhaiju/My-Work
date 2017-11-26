@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	 <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<title>手术</title>
+	<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+	<style type="text/css">
+		html,body{
+			font-size: 62.5%;
+		}
+		html,body,p,span,i{
+			margin: 0;
+			padding: 0;
+		}
+		body{
+			background-color: #ece1f3;
+		}
+		.top,.record,.doctor,.health{
+			background-color: #ffffff;
+		}
+		.top1,.record1,.doctor1,.health1{
+			padding: 0.5rem 2.8rem 0.8rem 0.5rem;
+			font-family: PingFangSC-Medium;
+			font-size: 1.6rem;
+			color: #666666;
+			line-height: 1.6rem;
+		}
+		.top2{
+			margin-left: 0.5rem;
+			margin-bottom: 0.3rem;
+			font-family: .PingFangSC-Light;
+			font-size: 1.3rem;
+			color: #999999;
+			letter-spacing: -0.5px;
+			line-height: 2rem;
+		}
+		.top3{
+			padding: 0 0.6rem 0.2rem 0.6rem;
+			font-family: PingFangSC-Light;
+			font-size: 1.4rem;
+			color: #666666;
+			line-height: 1.4rem;
+		}
+		.top3 .content{
+			padding-left: 4.6rem;
+		}
+		.top3 .right{
+			float: right;
+		}
+		.record,.doctor,.health{
+			margin-top: 0.26667rem;
+		}
+		.record2{
+			position: relative;
+    		padding: 0 0.4rem 0.53333rem 2.6rem;
+    		font-size: 0.34667rem;
+    		color: #4f4e4e;
+    		margin-top: 0.53333rem;
+    		margin-left: 0.4rem;
+    		border-bottom: 1px solid #F4F4F4;
+		}
+		.record2 .img{
+			position: absolute;
+		    left: 0.6rem;
+		    top: 0.06667rem;
+		    width: 1.6rem;
+		    height: 1.6rem;
+		    background-image: url(./images/222.png);
+		    background-size: 100% 100%;
+		}
+		.record2-1 p{
+			font-family: .PingFangSC-Light;
+			font-size: 1.3rem;
+			color: #323232;
+			letter-spacing: -0.3px;
+			line-height: 2rem;
+		}
+		.record2-1 p span{
+			color: red;
+		}
+		.doctor1 span.more{
+			float: right;
+			font-family: PingFangSC-Light;
+			font-size: 1.3rem;
+			color: #999999;
+			line-height: 1.3rem;
+		}
+		.discuss-item {
+            position: relative;
+            padding: 1.5rem 1.5rem 1.5rem 7rem;
+            border-bottom: 1px solid #e7e7e7;
+        }
+        .discuss-item img {
+            position: absolute;
+            left: 1.5rem;
+            width: 4rem;
+            height: 4rem;
+            border-radius: 100%;
+        }
+        .username{
+        	font-family: PingFangSC-Medium;
+			font-size: 1.6rem;
+			color: #323232;
+			letter-spacing: -0.39px;
+        }
+        .username span{
+        	padding-left: 1.0rem;
+        	font-family: PingFangSC-Light;
+			font-size: 1.3rem;
+			color: #666666;
+			letter-spacing: -0.31px;
+        }
+        .address{
+        	font-family: PingFangSC-Light;
+			font-size: 1.3rem;
+			color: #666666;
+			letter-spacing: -0.31px;
+        }
+        .good{
+        	font-family: PingFangSC-Light;
+			font-size: 1.3rem;
+			color: #999999;
+			letter-spacing: -0.41px;
+        }
+        .marketing{
+        	padding-top: 1.7rem;
+        	font-family: PingFangSC-Light;
+			font-size: 1.3rem;
+			color: #666666;
+			letter-spacing: -0.31px;
+        }
+        .marketing .red{
+        	color: #FF6134;
+        }
+        .marketing .special{
+			float: right !important;
+		    height: 1.3rem;
+		    padding: 0 0.05333rem;
+		    line-height: 1.3rem;
+		    text-align: center;
+		    border: 1px solid #ff6134;
+		    color: #ff6134;
+		    border-radius: 0.4rem;
+		    font-size: 1.3rem;
+        }
+        .health2{
+        	padding: 0 0 0 0.4rem;
+		    font-size: 0.34667rem;
+		    color: #4f4e4e;
+		    line-height: 1;
+        }
+        .health2-1{
+        	padding: 0.4rem 0.4rem 0.4rem 0;
+    		border-bottom: 1px solid #F4F4F4;
+        }
+        /*.health2-1 .doubt{
+			padding-right: 0.86667rem;
+    		position: relative;
+        }*/
+        .health2-1 .doubt .doubt1{
+        	font-family: PingFangSC-Light;
+			font-size: 1.5rem;
+			color: #000000;
+			line-height: 1.6rem;
+        }
+        .doubt1 span img{
+        	width: 0.7rem;
+        	height: 1.2rem;
+        	float: right;
+        }
+        /*.health2-1 .doubt .go_baike{
+        	position: absolute;
+		    right: 1rem;
+		    bottom: 1.2rem;
+		    margin: auto;
+		    width: 0.7rem;
+		    height: 0.5rem;
+		    background-size: cover;
+		    vertical-align: middle;
+        }*/
+        .consult2 .discuss-item{
+        	position: relative;
+    		padding: 1.5rem 1.5rem 1.5rem 10.5rem;
+    		border-bottom: 1px solid #e7e7e7;
+        }
+        .consult2 .discuss-item img{
+        	border-radius: 0;
+        	position: absolute;
+    		left: 1.5rem;
+    		width: 7.5rem;
+    		height: 7.5rem;
+        }
+        .question{
+        	font-family: .PingFangSC-Regular;
+			font-size: 1.5rem;
+			color: #323232;
+			letter-spacing: -0.36px;
+			line-height: 1.6rem;
+        }
+        .sex{
+        	font-family: .PingFangSC-Light;
+			font-size: 1.3rem;
+			color: #999999;
+			letter-spacing: -0.31px;
+			line-height: 1.3rem;
+			padding-top: 4.6rem;
+        }
+        .consult{
+        	margin-bottom: 7.8rem;
+        }
+        #sosuo{
+        	width: 100%;
+        	height: 5rem;
+        }
+        .dianji{
+			width: 10rem;
+			height: 10rem;
+        }
+	</style>
+</head>
+<body>
+	<input id="sosuo">
+	<button class="dianji">搜索</button>
+	<div class="top">
+		<!-- <div class="top1">
+			<span>阑尾炎手术</span>
+		</div>
+		<div class="top2">
+			口腔溃疡俗称“口疮”，是一种常见的发生于口腔黏膜的溃疡性损伤病症，多见于唇内侧、舌头、舌腹、颊黏膜、前庭沟、软腭等部位，这些部位的黏膜缺乏角质化层或角化较差舌头溃...
+		</div>
+		<div class="top3">
+			<span>就诊科室</span>
+			<span class="content">术前注意事项</span>
+			<span class="right">术后护理</span>
+		</div> -->
+	</div>
+	<div class="record">
+		<div class="record1">
+			<span>相关咨询记录</span>
+		</div>
+		<div class="record2">
+			<div class="img"></div>
+			<div class="record2-1">
+				<p>医生您好，<span>痤疮</span>或者粉刺、<span>痤疮</span>破裂、肤色不好、变色或者色素沉淀，该怎么办？应该吃点什么合适，平时应该注意什么饮食习惯或者生活上应该怎么样？
+				</p>
+			</div>
+		</div>
+		<div class="record2">
+			<div class="img"></div>
+			<div class="record2-1">
+				<p>医生您好，<span>痤疮</span>或者粉刺、<span>痤疮</span>破裂、肤色不好、变色或者色素沉淀，该怎么办？应该吃点什么合适，平时应该注意什么饮食习惯或者生活上应该怎么样？
+				</p>
+			</div>
+		</div>
+	</div>
+	<div class="doctor">
+		<div class="doctor1">
+			<span>医生推荐</span><span class="more">更多 ></span>
+		</div>
+		<div class="doctor2">
+			<div class="discuss-item">
+				<img src="./images/e5b56b0f275f093785ad79784e23f096.jpg">
+				<div class="item-right">
+					<p class="username">王坚韧<span>皮肤科 副主任医师</span></p>
+					<p class="address">中国人民解放军总医院（301医院）</p>
+					<p class="good">擅长：眼科常见病，脸裂斑，视网膜静脉阻塞白内障，眼底出血，斜视，视网膜脱落，眼红病等…</p>
+					<p class="marketing"><span class="red">¥5起</span>    <span>8792人购买</span></p>
+				</div>
+			</div>
+		</div>
+		<div class="doctor2">
+			<div class="discuss-item">
+				<img src="./images/e5b56b0f275f093785ad79784e23f096.jpg">
+				<div class="item-right">
+					<p class="username">王坚韧<span>皮肤科 副主任医师</span></p>
+					<p class="address">中国人民解放军总医院（301医院）</p>
+					<p class="good">擅长：眼科常见病，脸裂斑，视网膜静脉阻塞白内障，眼底出血，斜视，视网膜脱落，眼红病等…</p>
+					<p class="marketing"><span class="red">¥5起</span>    <span>8792人购买</span>
+						<span class="special"><i>特色服务</i></span>
+					</p>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="health">
+		<div class="health1">
+			<span>健康百科</span>
+		</div>
+		<div class="health2">
+			<div class="health2-1">
+				<div class="doubt">
+					<div class="doubt1">痤疮如何治疗？<span><img src="./images/Group 5 Copy@2x.png"></span></div>
+					<!-- <div class="go_baike"><img src="./images/Group 5 Copy@2x.png"></div> -->
+				</div>
+			</div>
+			<div class="health2-1">
+				<div class="doubt">
+					<div class="doubt1">痤疮如何治疗？<span><img src="./images/Group 5 Copy@2x.png"></span></div>
+					<!-- <div class="go_baike"><img src="./images/Group 5 Copy@2x.png"></div> -->
+				</div>
+			</div>
+			<div class="health2-1">
+				<div class="doubt">
+					<div class="doubt1">痤疮如何治疗？<span><img src="./images/Group 5 Copy@2x.png"></span></div>
+					<!-- <div class="go_baike"><img src="./images/Group 5 Copy@2x.png"></div> -->
+				</div>
+			</div>
+			<div class="health2-1">
+				<div class="doubt">
+					<div class="doubt1">痤疮如何治疗？<span><img src="./images/Group 5 Copy@2x.png"></span></div>
+					<!-- <div class="go_baike"><img src="./images/Group 5 Copy@2x.png"></div> -->
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="consult doctor">
+		<div class="doctor1 consult1">
+			<span>医生推荐</span><span class="more">更多 ></span>
+		</div>
+		<div class="doctor2 consult2">
+			<div class="discuss-item">
+				<img src="./images/e5b56b0f275f093785ad79784e23f096.jpg">
+				<div class="item-right">
+					<p class="question">把脸洗干净就不会长痘痘了吗？</p>
+					<p class="sex">两性 </p>
+				</div>
+			</div>
+		</div>
+		<div class="doctor2 consult2">
+			<div class="discuss-item">
+				<img src="./images/e5b56b0f275f093785ad79784e23f096.jpg">
+				<div class="item-right">
+					<p class="question">把脸洗干净就不会长痘痘了吗？</p>
+					<p class="sex">两性 </p>
+				</div>
+			</div>
+		</div>
+		<div class="doctor2 consult2">
+			<div class="discuss-item">
+				<img src="./images/e5b56b0f275f093785ad79784e23f096.jpg">
+				<div class="item-right">
+					<p class="question">把脸洗干净就不会长痘痘了吗？</p>
+					<p class="sex">两性 </p>
+				</div>
+			</div>
+		</div>
+	</div>
+<script type="text/javascript">
+	$(function(){
+		$(".dianji").click(function(){
+			var searchQuery = $("#sosuo").val();
+		$.ajax({
+			url:"http://test.zhituteam.com/fetch.php",
+			type:"get",
+			datatype:"json",
+			data:{
+				// is_json:1,
+				query:searchQuery,
+			},
+			success:function(res){
+				// console.log(res);
+				for (var i = 0; i < res.search_results.length; i++) {
+					if(res.search_results[i].type == 'DISEASE_DESC') {
+					var str = "<div class='top1'><span>"+res.search_results[i].query_str+"</span></div><div class='top2'>"+res.search_results[i].desc+"</div><div class='top3'><span>就诊科室</span><span class='content'>术前注意事项</span><span class='right'>术后护理</span></div>";
+				};
+ 				$(".top").html(str);
+				};
+			},
+			error:function(res){
+				alert(res);
+			}
+		})
+		})
+		// $.ajax({
+		// 	url:"http://test.zhituteam.com/fetch.php",
+		// 	type:"get",
+		// 	datatype:"json",
+		// 	data:{
+		// 		// is_json:1,
+		// 		query:"searchQuery",
+		// 	},
+		// 	success:function(res){
+		// 		// console.log(res);
+		// 		for (var i = 0; i < res.search_results.length; i++) {
+		// 			if(res.search_results[i].type == 'DISEASE_DESC') {
+		// 			var str = "<div class='top1'><span>"+res.search_results[i].query_str+"</span></div><div class='top2'>"+res.search_results[i].desc+"</div><div class='top3'><span>就诊科室</span><span class='content'>术前注意事项</span><span class='right'>术后护理</span></div>";
+		// 		};
+ 	// 			$(".top").html(str);
+		// 		};
+		// 	},
+		// 	error:function(res){
+		// 		alert(res);
+		// 	}
+		// })
+	})
+</script>
+</body>
+</html>
